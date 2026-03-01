@@ -44,10 +44,12 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, textIndex, texts]);
 
-  const handleDownloadCV = () => {
+ const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Hajra-Amin.pdf";
-    link.download = "Hajra_Amin_CV.pdf";
+    // 1. File ka sahi naam jo public folder mein hai
+    link.href = "/Hajra-Amin.pdf"; 
+    // 2. Download hone ke baad file ka jo naam aap rakhna chahti hain
+    link.download = "Hajra_Amin_Resume.pdf"; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -59,7 +61,7 @@ const Home = () => {
         <div className="home-content">
           <div className="home-text">
             <h1 className="greeting">
-              Hi, I'm <span className="highlight">Hajra Amin</span>
+              Hi, I'm <span className="highlight"> Hajra Amin</span>
             </h1>
             <div className="typing-text">
               <span className="text-change">
@@ -85,7 +87,7 @@ const Home = () => {
             <div className="image-wrapper">
               {/* Main Profile Image */}
               <img
-                src="/images/girl-image.jpg"
+                src="/images/hajra.png"
                 alt="Hajra Amin"
                 className="profile-img"
                 onError={(e) => {

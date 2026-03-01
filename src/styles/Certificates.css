@@ -1,0 +1,127 @@
+.cert-main-section {
+  padding: 100px 0;
+  background-color: #0a192f;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cert-container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Heading aur Grid dono ko center karne ke liye */
+}
+
+.cert-section-title {
+  font-size: 2.5rem;
+  color: #ccd6f6;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  display: block;
+}
+
+/* Sirf "Certificates" ke niche underline */
+.cert-highlight {
+  color: #64ffda;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.cert-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #64ffda;
+  border-radius: 2px;
+}
+
+.cert-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.cert-item-card {
+  background: #112240;
+  padding: 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.cert-item-card:hover {
+  transform: translateY(-10px);
+  border-color: #64ffda;
+  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+}
+
+.cert-frame-box {
+  position: relative;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  padding: 10px;
+  background: #0a192f;
+  border-radius: 4px;
+}
+
+.cert-img-fluid {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.cert-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #64ffda;
+  border-style: solid;
+  border-width: 0;
+}
+
+.cert-top-right {
+  top: 5px;
+  right: 5px;
+  border-right-width: 2px;
+  border-top-width: 2px;
+}
+
+.cert-bottom-left {
+  bottom: 5px;
+  left: 5px;
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.cert-text-info h3 {
+  color: #ccd6f6;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cert-path-error {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64ffda;
+  border: 1px dashed #64ffda;
+}
+
+/* Responsiveness */
+@media (max-width: 1100px) {
+  .cert-grid-layout { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .cert-grid-layout { grid-template-columns: 1fr; }
+}

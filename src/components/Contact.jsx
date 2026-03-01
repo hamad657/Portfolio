@@ -12,7 +12,7 @@ const Contact = () => {
                     </p>
                     
                     <div className="email-container">
-                        <a href="mailto:ha1692874@gmail.com" className="email-link">
+                        <a href="mailto:ayeshaamin328@gmail.com" className="email-link">
                             <span className="email-icon">📧</span>
                             <span className="email-text">ha1692874@gmail.com</span>
                         </a>
@@ -34,7 +34,7 @@ const Contact = () => {
   style={{ filter: "invert(29%) sepia(98%) saturate(747%) hue-rotate(176deg)" }}
 />
                         </a>
-                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <img 
                                 src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/facebook.svg" 
                                 alt="Facebook" 
