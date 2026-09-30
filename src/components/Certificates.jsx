@@ -1,136 +1,95 @@
-// import "../styles/Certificates.css";
-
-// const Certificates = () => {
-//   const certificatesData = [
-//     {
-//       id: 1,
-//       title: "Saylani Mass Training - Web Designing",
-//       image: "/images/certificates/certificate-saylani.png",
-//       alt: "Saylani Certificate",
-//     },
-//     {
-//       id: 2,
-//       title: "Nova Academy - App Development",
-//       image: "/images/certificates/certificate-nova.png",
-//       alt: "Nova Certificate",
-//     },
-//     {
-//       id: 3,
-//       title: "Stanford University - Code in Place",
-//       image: "/images/certificates/certificate-word1.png", // Word se convert karke yahan naam yehi rakhein
-//       alt: "Stanford Certificate",
-//     },
-//     {
-//       id: 4,
-//       title: "Code Alpha - Full Stack Internship",
-//       image: "/images/certificates/certificate-word2.png", // Word se convert karke yahan naam yehi rakhein
-//       alt: "Code Alpha Certificate",
-//     },
-//   ];
-
-//   return (
-//     <section className="certificates-section" id="certificates">
-//       <div className="container">
-//         <h2 className="section-title">
-//           My <span className="highlight">Certificates</span>
-//         </h2>
-        
-//         <div className="certificates-grid">
-//           {certificatesData.map((cert) => (
-//             <div key={cert.id} className="certificate-card">
-//               <div className="frame-wrapper">
-//                 <img
-//                   src={cert.image}
-//                   alt={cert.alt}
-//                   className="certificate-image"
-//                   onError={(e) => {
-//                     e.target.style.display = 'none';
-//                     e.target.parentElement.innerHTML += '<div class="path-error">Image Not Found</div>';
-//                   }}
-//                 />
-//                 {/* Decorative Corners for Frame Look */}
-//                 <div className="corner top-right"></div>
-//                 <div className="corner bottom-left"></div>
-//               </div>
-//               <div className="cert-info">
-//                 <h3>{cert.title}</h3>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Certificates;
-
-
-
-
-
-
-
-
+import React from "react";
 import "../styles/Certificates.css";
 
 const Certificates = () => {
   const certificatesData = [
     {
       id: 1,
-      title: "Saylani Mass Training - Web Designing",
-      image: "/images/certificates/certificate-saylani.png",
-      alt: "Saylani Certificate",
+      title: "Saylani - Web Designing Crash Course",
+      issuer: "Saylani IT",
+      date: "2024",
+      image: "/images/certificates/certificate-saylani-design.png",
+      alt: "Saylani Web Designing Certificate",
     },
     {
       id: 2,
+      title: "Saylani - Web & Mobile App Dev",
+      issuer: "Saylani IT",
+      date: "2024",
+      image: "/images/certificates/certificate-saylani.png",
+      alt: "Saylani App Dev Certificate",
+    },
+    {
+      id: 3,
       title: "Nova Academy - App Development",
+      issuer: "Nova Academy",
+      date: "2023",
       image: "/images/certificates/certificate-nova.png",
       alt: "Nova Certificate",
     },
     {
-      id: 3,
+      id: 4,
       title: "Stanford University - Code in Place",
+      issuer: "Stanford",
+      date: "2023",
       image: "/images/certificates/certificate-word1.png",
       alt: "Stanford Certificate",
     },
     {
-      id: 4,
-      title: "Code Alpha - Full Stack Internship",
+      id: 5,
+      title: "Az-Zuha Institute - Freelancing",
+      issuer: "Az-Zuha",
+      date: "2023",
       image: "/images/certificates/certificate-word2.png",
-      alt: "Code Alpha Certificate",
+      alt: "Freelancing Certificate",
     },
   ];
 
   return (
     <section className="cert-main-section" id="certificates">
       <div className="cert-container">
-        <h2 className="cert-section-title">
-          My <span className="cert-highlight">Certificates</span>
-        </h2>
         
-        <div className="cert-grid-layout">
-          {certificatesData.map((cert) => (
-            <div key={cert.id} className="cert-item-card">
-              <div className="cert-frame-box">
-                <img
-                  src={cert.image}
-                  alt={cert.alt}
-                  className="cert-img-fluid"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML += '<div class="cert-path-error">Image Not Found</div>';
-                  }}
-                />
-                <div className="cert-corner cert-top-right"></div>
-                <div className="cert-corner cert-bottom-left"></div>
-              </div>
-              <div className="cert-text-info">
-                <h3>{cert.title}</h3>
-              </div>
-            </div>
-          ))}
+        <div className="cert-header">
+          <span className="cert-badge">ACHIEVEMENTS</span>
+          <h2 className="cert-section-title">
+            My <span className="cert-highlight">Certificates</span>
+          </h2>
+          <p className="cert-section-subtitle">
+            Explore my professional credentials and completed milestones in web development & tech.
+          </p>
         </div>
+
+        {/* Infinite Scrolling Carousel Track */}
+        <div className="cert-carousel-container">
+          <div className="cert-track">
+            {[...certificatesData, ...certificatesData].map((cert, index) => (
+              <div key={`${cert.id}-${index}`} className="cert-interactive-card">
+                <div className="cert-card-inner-glow"></div>
+                
+                <div className="cert-img-container">
+                  <img
+                    src={cert.image}
+                    alt={cert.alt}
+                    className="cert-preview-img"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML += '<div class="cert-path-error">Image Not Found</div>';
+                    }}
+                  />
+                  <span className="cert-issuer-badge">{cert.issuer}</span>
+                </div>
+
+                <div className="cert-details-box">
+                  <div className="cert-text-area">
+                    <h3>{cert.title}</h3>
+                  </div>
+                  <span className="cert-date-badge">{cert.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

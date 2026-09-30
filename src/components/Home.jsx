@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaGithub, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -7,9 +8,9 @@ const Home = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const texts = [
-    "I'm a Web Developer",
-    "I'm a Problem Solver",
-    "I'm a Web Designer",
+    "MERN Stack Developer",
+    "Full Stack Engineer",
+    "Backend & Frontend Expert",
   ];
 
   useEffect(() => {
@@ -44,11 +45,9 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, textIndex, texts]);
 
- const handleDownloadCV = () => {
+  const handleDownloadCV = () => {
     const link = document.createElement("a");
-    // 1. File ka sahi naam jo public folder mein hai
     link.href = "/Hajra-Amin.pdf"; 
-    // 2. Download hone ke baad file ka jo naam aap rakhna chahti hain
     link.download = "Hajra_Amin_Resume.pdf"; 
     document.body.appendChild(link);
     link.click();
@@ -59,47 +58,66 @@ const Home = () => {
     <section className="home-section" id="home">
       <div className="container">
         <div className="home-content">
-          <div className="home-text">
+          <div className="home-text animate-left" data-aos="fade-right">
+            <span className="welcome-tag">WELCOME TO MY PORTFOLIO</span>
             <h1 className="greeting">
-              Hi, I'm <span className="highlight"> Hajra Amin</span>
+              Hi, I'm <span className="highlight">Hajra Amin</span>
             </h1>
+            
             <div className="typing-text">
-              <span className="text-change">
-                {currentText}
-                <span className="cursor">|</span>
-              </span>
+              <span className="code-tag">&lt;</span>
+              <span className="text-change">{currentText}</span>
+              <span className="code-tag">/&gt;</span>
+              <span className="cursor">|</span>
             </div>
+
             <p className="description">
-              Passionate web developer creating beautiful and functional
-              websites with modern technologies and best practices.
+              I build scalable, high-performance full-stack web applications, 
+              expertly handling both robust backend architecture and responsive user interfaces.
             </p>
+
             <div className="home-buttons">
-              <button className="btn primary-btn" onClick={handleDownloadCV}>
-                Download CV
-              </button>
-              <a href="#contact" className="btn secondary-btn">
-                Contact Me
+              <a href="#projects" className="btn primary-btn">
+                Explore My Work →
               </a>
+              <button className="btn secondary-btn" onClick={handleDownloadCV}>
+                Open CV
+              </button>
+            </div>
+
+            <div className="social-links-wrapper">
+              <span className="find-me">FIND ME ON</span>
+              <div className="social-icons">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub"><FaGithub /></a>
+                <a href="https://www.linkedin.com/in/hajra-ameen-95674633a" target="_blank" rel="noopener noreferrer" title="LinkedIn"><FaLinkedinIn /></a>
+                <a href="https://instagram.com/hcoders_dev?igsh=MWJsMGlnNWR5c3ZmaQ==" target="_blank" rel="noopener noreferrer" title="Instagram"><FaInstagram /></a>
+                <a href="https://youtube.com/@hcodersdev?si=MscxA7VBz960q27u" target="_blank" rel="noopener noreferrer" title="YouTube"><FaYoutube /></a>
+              </div>
             </div>
           </div>
           
-          <div className="home-image">
+          <div className="home-image animate-right" data-aos="fade-left">
             <div className="image-wrapper">
-              {/* Main Profile Image */}
-              <img
-                src="/images/hajra.png"
-                alt="Hajra Amin"
-                className="profile-img"
-                onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/400x500/112240/64ffda?text=Hajra+Amin";
-                }}
-              />
+              {/* Rotating Gradient Aura */}
+              <div className="image-glow-ring"></div>
+
+              {/* 5 Stack Badges evenly distributed in circular positions */}
+              <div className="floating-badge badge-1">React</div>
+              <div className="floating-badge badge-2">Node.js</div>
+              <div className="floating-badge badge-3">MongoDB</div>
+              <div className="floating-badge badge-4">Express</div>
+              <div className="floating-badge badge-5">JavaScript</div>
               
-              {/* Top-Right Corner Border - THIN TEAL */}
-              <div className="top-right-corner"></div>
-              
-              {/* Bottom-Left Corner Border - THIN TEAL */}
-              <div className="bottom-left-corner"></div>
+              <div className="profile-frame">
+                <img
+                  src="/images/hajra.png"
+                  alt="Hajra Amin"
+                  className="profile-img"
+                  onError={(e) => {
+                    e.target.src = "https://via.placeholder.com/400x500/6366f1/ffffff?text=Hajra+Amin";
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

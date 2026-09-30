@@ -1,56 +1,48 @@
-// import './App.css';
-// import Navbar from './components/Navbar';
-// import Footer from './components/Footer';
-// import Home from './components/Home';
-// import About from './components/About';
-// import Projects from './components/Projects';
-// import Skills from './components/Skills';
-// import Contact from './components/Contact';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Navbar />
-//       <main>
-//         <Home />
-//         <About />
-//         <Projects />
-//         <Skills />
-//         <Contact />
-//       </main>
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './styles/animations.css'; // Aapki custom animations file
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
-import Certificates from './components/Certificates'; // 1. Naya Import
-import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
+import Footer from './components/Footer'; 
+import './App.css';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // AOS Animation Initialize
+    AOS.init({
+      duration: 1000, // Animation speed (1 second)
+      once: true,     // Animation sirf aik baar scroll karne par chale
+    });
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <Navbar />
+    <div className="app">
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
         <Home />
         <About />
-        <Certificates /> {/* 2. Naya Section yahan add kiya hai */}
-        <Projects />
-        <Skills />
+        <Certificates />
+        <Projects /> 
+        <Skills /> 
         <Contact />
+        <Footer /> 
       </main>
-      <Footer />
     </div>
   );
 }

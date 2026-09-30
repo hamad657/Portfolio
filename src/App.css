@@ -1,35 +1,43 @@
-/* App.css */
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #0a192f;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #f8f6fd; /* Bilkul halka sa soft purple background */
+  --card-bg: #ffffff;
+  --text-main: #1e1b4b;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --primary-color: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
 }
 
-main {
-  flex: 1;
+body.dark-mode {
+  --bg-color: #07090e;         /* Deep premium dark background */
+  --card-bg: #111827;         /* Dark card background */
+  --text-main: #f8fafc;        /* Bright white text */
+  --text-secondary: #94a3b8;   /* Muted light text */
+  --primary-color: #818cf8;    /* Glowing soft indigo accent */
+  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  --border-color: #1f2937;     /* Dark theme borders */
+  --nav-bg: rgba(7, 9, 14, 0.85);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-::-webkit-scrollbar-track {
-  background: #0a192f;
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #64ffda;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #52d3b7;
-}
-
-/* Selection Color */
-::selection {
-  background-color: rgba(100, 255, 218, 0.3);
-  color: #ccd6f6;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

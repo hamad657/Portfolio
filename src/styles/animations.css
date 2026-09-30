@@ -1,101 +1,63 @@
-/* Animation Classes */
-@keyframes float {
-    0%, 100% {
+/* Navbar Upar Se Aane ke liye */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
         transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
         opacity: 1;
     }
-    50% {
-        opacity: 0.5;
+}
+
+.animate-navbar {
+    animation: slideDown 0.8s ease-in-out;
+}
+
+/* Left Side se Elements Aane ke liye */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-@keyframes shine {
-    0% {
-        background-position: -100px;
+.animate-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+/* Right Side se Elements Aane ke liye */
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
     }
-    40%, 100% {
-        background-position: 300px;
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+.animate-right {
+    animation: slideInRight 1s ease-in-out;
 }
 
-@keyframes blink {
-    50% { border-color: transparent }
+/* Cards Fade Up ke liye */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.float {
-    animation: float 3s ease-in-out infinite;
-}
-
-.pulse {
-    animation: pulse 2s ease-in-out infinite;
-}
-
-.typing-animation {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid #64ffda;
-    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
-}
-
-/* Page transition animations */
-.page-enter {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.page-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 300ms, transform 300ms;
-}
-
-.page-exit {
-    opacity: 1;
-}
-
-.page-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 300ms, transform 300ms;
-}
-
-/* Card hover effects */
-.hover-lift {
-    transition: transform 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-10px);
-}
-
-/* Gradient text */
-.gradient-text {
-    background: linear-gradient(45deg, #64ffda, #00b8a9);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-}
-
-/* Shimmer effect */
-.shimmer {
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.1) 50%, 
-        transparent 100%);
-    background-size: 200% 100%;
-    animation: shine 2s infinite;
+.animate-card {
+    animation: fadeInUp 0.8s ease-in-out;
 }
